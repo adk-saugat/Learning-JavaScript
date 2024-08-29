@@ -1,5 +1,10 @@
-let names = ['saugat', 'samarpan','suman']
+function getPerson(personName, personAge){
+    const person = {
+        name : personName,
+        age : personAge
+    }
+    return person
+}
 
-names.forEach( function (item){
-    console.log(item)
-})
+//console.log(getPerson('saugat', 19))
+//console.log(getPerson('samarpan', 21))
