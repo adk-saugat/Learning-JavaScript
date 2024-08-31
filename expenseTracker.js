@@ -16,9 +16,9 @@ const account = {
     }
 }
 
-// account.addExpense('Rent', 950)
-// account.addExpense('Subway', 6)
-// account.addExpense('Coffee', 2)
-// console.log(account.getAccountSummary())
-console.log(account)
+account.addExpense('Rent', 950)
+account.addExpense('Subway', 6)
+account.addExpense('Coffee', 2)
+console.log(account.getAccountSummary())
+
 
