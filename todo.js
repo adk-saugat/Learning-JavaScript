@@ -22,15 +22,11 @@ function deleteTodo(todoTitle){
     todos.splice(index, 1)
 }
 
-<<<<<<< HEAD
+
 console.log(todosToBeCompleted(todos))
-//deleteTodo('exercise')
-//console.log(todos)
-=======
-console.log(todos)
 deleteTodo('exercise')
 console.log(todos)
->>>>>>> 36f0bab9b2f63346be3bd4df5ac19ec07e7da293
+
 
 
 
