@@ -1,31 +1,44 @@
 let todos = [{
     title: 'Code',
-    isComplete: true
+    isComplete: false
 }]
 
-const renderTodos = function (){
+
+
+const renderDesc = function (){
     let totalIncomplete = 0
-    
-    document.querySelector('#todo-content').innerHTML = ''
-    todos.forEach(function (todo, index){
+
+    todos.forEach(function (todo){
         if (!todo.isComplete){
             totalIncomplete += 1
         }
-        const todoItem = document.createElement('h3')
-
-        todoItem.textContent = `${index + 1}. ${todo.title}`
-        document.querySelector('#todo-content').appendChild(todoItem)
     })
-    
     const todoDesc = document.createElement('h2')
     todoDesc.textContent = `Todos Left: ${totalIncomplete}`
     document.querySelector('#todo-content').appendChild(todoDesc)
-    //document.querySelector('#todo-description').textContent = 
 }
 
+const renderTodos = function (){
+    
+    
+    document.querySelector('#todo-content').innerHTML = ''
+    renderDesc()
+    todos.forEach(function (todo){
+        const todoItem = document.createElement('h3')
+        // const todoCheckBox = document.createElement('input')
+        // todoCheckBox.setAttribute('type', 'checkbox')
+
+        todoItem.textContent = `${todo.title}`
+        //document.querySelector('#todo-content').appendChild(todo)
+        document.querySelector('#todo-content').appendChild(todoItem)
 
 
+    })
+}
+
+renderDesc()
 renderTodos()
+
 document.querySelector('#form-box').addEventListener('submit', function (e){
     e.preventDefault()
     
