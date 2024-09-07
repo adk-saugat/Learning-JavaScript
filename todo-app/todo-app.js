@@ -7,10 +7,12 @@ document.querySelector("#form-box").addEventListener("submit", function (e) {
   e.preventDefault()
 
   todos.push({
+    id: crypto.randomUUID(),
     title: e.target.elements.todoInputBox.value,
     isComplete: false,
   })
-  localStorage.setItem("todos", JSON.stringify(todos))
+
+  saveTodo(todos)
   renderTodos(todos)
   e.target.elements.todoInputBox.value = ""
 })
