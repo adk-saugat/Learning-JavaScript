@@ -7,6 +7,28 @@ const getStoredTodos = function () {
   }
 }
 
+const saveTodo = function (todos) {
+  localStorage.setItem("todos", JSON.stringify(todos))
+}
+
+const generateTodoDOM = function (todo) {
+  const itemContainer = document.createElement('div')
+  const todoCheckBox = document.createElement('input')
+  const todoItem = document.createElement('span')
+  const deleteBtn = document.createElement('button')  
+  
+  todoCheckBox.setAttribute('type', 'checkbox')
+  itemContainer.appendChild(todoCheckBox)
+
+  todoItem.textContent = todo.title
+  itemContainer.appendChild(todoItem)
+
+  deleteBtn.textContent = 'X'
+  itemContainer.appendChild(deleteBtn)
+  
+  return itemContainer
+}
+
 const renderDesc = function (todos) {
   let totalIncomplete = 0
 
@@ -24,8 +46,7 @@ const renderTodos = function (todos) {
   document.querySelector("#todo-content").innerHTML = ""
   renderDesc(todos)
   todos.forEach(function (todo) {
-    const todoItem = document.createElement("h3")
-    todoItem.textContent = `${todo.title}`
+    const todoItem = generateTodoDOM(todo)
     document.querySelector("#todo-content").appendChild(todoItem)
   })
 }
