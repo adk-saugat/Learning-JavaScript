@@ -11,13 +11,23 @@ const saveTodo = function (todos) {
   localStorage.setItem("todos", JSON.stringify(todos))
 }
 
-const deleteTodo = function (id){
-  const todoIndex = todos.findIndex(function (todo){
+const deleteTodo = function (id) {
+  const todoIndex = todos.findIndex(function (todo) {
     return todo.id === id
   })
 
-  if (todoIndex > -1){
+  if (todoIndex > -1) {
     todos.splice(todoIndex, 1)
+  }
+}
+
+const toggleTodo = function (id) {
+  const todo = todos.find(function (todo) {
+    return todo.id === id
+  })
+
+  if (todo !== undefined) {
+    todo.isComplete = !todo.isComplete
   }
 }
 
@@ -29,6 +39,12 @@ const generateTodoDOM = function (todo) {
 
   todoCheckBox.setAttribute('type', 'checkbox')
   itemContainer.appendChild(todoCheckBox)
+  todoCheckBox.checked = todo.isComplete
+  todoCheckBox.addEventListener('change', function () {
+    toggleTodo(todo.id)
+    saveTodo(todos)
+    renderTodos(todos)
+  })
 
   todoItem.textContent = todo.title
   itemContainer.appendChild(todoItem)
