@@ -11,6 +11,7 @@ document.querySelector('#noteInputField').addEventListener('submit', function (e
         title: e.target.elements.noteInputBox.value,
         description: 'Null'
     })
+    document.querySelector('#noteWrapper').innerHTML = ''
     renderNotes(notes)
     // console.log(e.target.elements.noteInputBox.value)
 })
