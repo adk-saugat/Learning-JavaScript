@@ -1,8 +1,4 @@
-const notes = [{
-    title: 'note1',
-    description: 'Code'
-}]
-
+const notes = getStoredNotes()
 renderNotes(notes)
 
 document.querySelector('#noteInputField').addEventListener('submit', function (e) {
@@ -12,7 +8,7 @@ document.querySelector('#noteInputField').addEventListener('submit', function (e
         description: 'Null'
     })
     document.querySelector('#noteWrapper').innerHTML = ''
+    saveNotes(notes)
     renderNotes(notes)
-    // console.log(e.target.elements.noteInputBox.value)
 })
 
