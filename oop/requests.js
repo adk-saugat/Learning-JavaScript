@@ -1,4 +1,4 @@
-const getCountry = (countryCode, callBack) => {
+const getCountry = (countryCode) => new Promise((resolve, reject) => {
     const countryReq = new XMLHttpRequest()
 
     countryReq.addEventListener('readystatechange', (e) => {
@@ -6,15 +6,15 @@ const getCountry = (countryCode, callBack) => {
             const countryArray = JSON.parse(e.target.responseText)
             countryArray.forEach((country) => {
                 if (country.cca2 === countryCode) {
-                    callBack(undefined, country.name.common)
+                    resolve(country.name.common)
                 }
             })
         }
         else if (e.target.readyState === 4) {
-            callBack('Unable to fetch data!', undefined)
+            reject('Unable to fetch data!')
         }
     })
 
     countryReq.open('GET', 'https://restcountries.com/v3.1/all')
     countryReq.send()
-}
+})

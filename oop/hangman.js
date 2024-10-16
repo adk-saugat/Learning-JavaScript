@@ -1,11 +1,9 @@
-const countryCode = 'NP'
+const countryCode = 'MX'
 
-getCountry(countryCode, (error, countryName) => {
-    if (error) {
-        console.log(error)
-    } else {
-        console.log(countryName)
-    }
+getCountry(countryCode).then((data) => {
+    console.log(data)
+}, (error) => {
+    console.log(error)
 })
 
 
