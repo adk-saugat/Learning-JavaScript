@@ -1,28 +1,28 @@
 const account = {
     name: 'Saugat Adhikari',
     income: [],
-    expenses : [],
-    addIncome : function (description, amount){
+    expenses: [],
+    addIncome: function (description, amount) {
         this.income.push({
             description: description,
             amount: amount
         })
     },
 
-    addExpense : function (description, amount){
+    addExpense: function (description, amount) {
         this.expenses.push({
             description: description,
             amount: amount
         })
     },
-    getAccountSummary: function (){
+    getAccountSummary: function () {
         let totalIncome = 0
         let totalExpense = 0
 
-        this.income.forEach(function (income){
+        this.income.forEach(function (income) {
             totalIncome += income.amount
         })
-        this.expenses.forEach(function (expense){
+        this.expenses.forEach(function (expense) {
             totalExpense += expense.amount
         })
         return `${this.name} has balance $${totalIncome - totalExpense}. $${totalIncome} in income. $${totalExpense} in expense.`;

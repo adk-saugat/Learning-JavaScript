@@ -1,10 +1,6 @@
-function getPerson(personName, personAge){
-    const person = {
-        name : personName,
-        age : personAge
-    }
-    return person
-}
+const request = new XMLHttpRequest()
 
-//console.log(getPerson('saugat', 19))
-//console.log(getPerson('samarpan', 21))
+request.open('https://puzzle.mead.io/puzzle')
+request.send()
+
+

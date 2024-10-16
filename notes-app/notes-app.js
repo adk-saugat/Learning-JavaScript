@@ -12,3 +12,7 @@ document.querySelector('#noteInputField').addEventListener('submit', function (e
     renderNotes(notes)
 })
 
+document.querySelector('#noteFilter').addEventListener('input', function (e) {
+    console.log(e.target.value)
+})
+
